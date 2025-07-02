@@ -1,0 +1,767 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+        .table > tbody > tr > td, .table > tfoot > tr > td {
+            vertical-align: middle;
+        }
+
+        @media screen and (max-width: 600px) {
+            table#cart tbody td .form-control {
+                width: 20%;
+                display: inline !important;
+            }
+
+            .actions .btn {
+                width: 36%;
+                margin: 1.5em 0;
+            }
+
+            .actions .btn-info {
+                float: left;
+            }
+
+            .actions .btn-danger {
+                float: right;
+            }
+
+            table#cart thead {
+                display: none;
+            }
+
+            table#cart tbody td {
+                display: block;
+                padding: .6rem;
+                min-width: 320px;
+            }
+
+            table#cart tbody tr td:first-child {
+                background: #333;
+                color: #fff;
+            }
+
+            table#cart tbody td:before {
+                content: attr(data-th);
+                font-weight: bold;
+                display: inline-block;
+                width: 8rem;
+            }
+
+
+
+            table#cart tfoot td {
+                display: block;
+            }
+
+                table#cart tfoot td .btn {
+                    display: block;
+                }
+        }
+    </style>
+    <!--===============================================================================================-->
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    <header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+                    <a href="#"><p class="p-b-11" style="padding-top:10px">Wana Chat? Click on any of the Icons :</p></a>
+                    <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="topbar-social-item fa fa-whatsapp"></a>
+                    <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="https://twitter.com/afriheals" target="_blank" class="topbar-social-item fa fa-twitter"></a>
+                </div>
+
+                <span class="topbar-child1">
+                    Free delivery for standard order over R 1000.00
+                </span>
+
+                <div class="topbar-child2">
+
+                    <a href="mailto:info@africanheals.co.za?Subject='Mpesu Enquiry'" target="_blank" class="fa fa-address-book">
+                        <span class="topbar-email">
+                            info@africanheals.co.za
+                        </span>
+                    </a>
+                    <span class="linedivide1"></span>
+
+                    <a href="tel:+27761823476" target="_blank" class="fa fa-phone">&nbsp; <span class="topbar-email">+27 76 182 3476</span></a>
+
+
+                </div>
+            </div>
+
+            <div class="wrap_header">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="images/mpesu/logo.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu -->
+                <div class="wrap_menu">
+                    <nav class="menu">
+                        <ul class="main_menu">
+                            <li>
+                                <a href="index.html">Shop</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="faqs.html">FAQs</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Header Icon -->
+                <div class="header-icons" data-model="cart">
+                    <div class="header-wrapicon2">
+                        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti" data-bind="text:cart.cartlist().length"></span>
+
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                            <ul class="header-cart-wrapitem" data-bind="foreach:cart.cartlist">
+                                <li class="header-cart-item">
+                                    <div class="header-cart-item-img">
+                                        <img class="productinfo" data-bind="attr:{src:cart_pic}" alt="IMG">
+                                    </div>
+
+                                    <div class="header-cart-item-txt">
+                                        <a href="#" class="productinfo header-cart-item-name">
+                                            <span data-bind="text:productname"></span>
+                                        </a>
+                                        <span class="header-cart-item-info">
+                                            <span data-bind="text:quantity"></span>x <span data-bind="text:price"></span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div data-bind="visible:cart.cartlist().length<1">
+                                <h4 style="color:red">Your Cart is Empty</h4>
+                            </div>
+                            <div class="header-cart-total">
+                                Total:<span data-bind="text:cart.grand_total"></span>
+                            </div>
+
+                            <div class="header-cart-buttons" data-bind="visible:cart.cartlist().length>0">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="checkout.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="linedivide1"></span>
+
+                    <a href="checkout.html" class="header-wrapicon1 dis-block">
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Header Mobile -->
+        <div class="wrap_header_mobile">
+            <!-- Logo moblie -->
+            <a href="index.html" class="logo-mobile">
+                <img src="images/mpesu/logo.png" alt="IMG-LOGO">
+            </a>
+
+            <!-- Button show menu -->
+            <div class="btn-show-menu">
+                <!-- Header Icon mobile -->
+                <div class="header-icons-mobile">
+
+
+                    <div class="header-wrapicon2" data-model="cart">
+                        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti" data-bind="text: cart.cartlist().length"></span>
+
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                            <ul class=" header-cart-wrapitem" data-bind="foreach:cart.cartlist">
+                                <li class="header-cart-item">
+                                    <div class="productinfo header-cart-item-img">
+                                        <img class="productinfo" data-bind="attr:{src:cart_pic}" alt="IMG">
+                                    </div>
+
+                                    <div class="header-cart-item-txt">
+                                        <a href="#" class="productinfo header-cart-item-name">
+                                            <span data-bind="text:productname"></span>
+                                        </a>
+
+                                        <span class="header-cart-item-info">
+                                            <span data-bind="text:quantity"></span> x <span data-bind="text:price"></span>
+                                        </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <div class="header-cart-total">
+                                Total:<span data-bind="text:cart.grand_total"></span>
+                            </div>
+
+                            <div class="header-cart-buttons">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="checkout.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="linedivide2"></span>
+
+                    <a href="checkout.html" class="header-wrapicon1 dis-block">
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+
+
+                </div>
+
+                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="wrap-side-menu">
+            <nav class="side-menu">
+                <ul class="main-menu">
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <span class="topbar-child1">
+                            Free delivery for standard order over R 1000.00
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8 centered">
+                        <div class="topbar-child2-mobile ">
+                            <a href="mailto:info@africanheals.co.za?Subject='Mpesu Enquiry'" target="_blank" class="fa fa-address-book">
+                                <span class="topbar-email">
+                                    info@africanheals.co.za
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8 centered">
+                        <span class="topbar-child1">
+                            <a href="tel:+27761823476" target="_blank" class="fa fa-phone">&nbsp; <span class="topbar-email">+27 76 182 3476</span></a>
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-10">
+                        <div class="topbar-social-mobile">
+                            <p class="p-b-11">Wana Chat? Click on any of the Icons:</p>
+                            <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="topbar-social-item fa fa-whatsapp"></a>
+                            <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+                            <a href="https://twitter.com/afriheals" target="_blank" class="topbar-social-item fa fa-twitter"></a>
+                            <a href="tel:+27761823476" target="_blank" class="topbar-social-item fa fa-phone"></a>
+                            <a href="sms:0761823476" target="_blank" class="topbar-social-item fa fa-envelope"></a>
+                        </div>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="index.html">Shop</a>
+                    </li>
+
+
+                    <li class="item-menu-mobile">
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li class="item-menu-mobile">
+                        <a href="faqs.html">FAQs</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Title Page -->
+    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/mpesu/cartheader.png);">
+        <h2 class="l-text2 t-center">
+            Cart
+        </h2>
+    </section>
+
+
+    <section class="cart bgwhite p-t-70 p-b-100">
+
+    <div class="container" data-model="cart">
+        <table id="cart" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th style="width:50%"></th>
+                    <th style="width:10%">Price</th>
+                    <!--<th style="width:8%">Price</th>-->
+                    <th style="width:22%" class="text-center">Quantity</th>
+                    <th style="width:10%">Total</th>
+
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:cart.cartlist">
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-5 hidden-xs"> <img data-bind="attr:{src:cart_pic}" alt="IMG-PRODUCT" style="height:100px"></div>
+                            <div class="col-sm-6">
+                                <h4 class="nomargin" data-bind="text:productname"></h4>
+                                <!--<p data-bind="text:productname"></p>-->
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price" data-bind="text:'R'+price()"></td>
+                    <td data-th="Quantity">
+                        <!--<input type="number" class="form-control text-center" value="1">-->
+                        <div class="flex-w bo5 of-hidden w-size17">
+                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2" data-bind="click:function(){quantity()>1? quantity(quantity()-1):quantity(1); cart.cartlist.notifySubscribers(cart.cartlist());}">
+                                <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                            </button>
+
+                            <input class="size8 m-text18 t-center num-product" type="number" data-bind="event: { change:function(){quantity()<1? quantity(1):quantity();cart.cartlist.notifySubscribers(cart.cartlist());}},value:quantity,valueUpdate: 'afterkeydown'">
+
+                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" data-bind="click:function(){quantity()<1000? quantity(quantity()+1):quantity(1000); cart.cartlist.notifySubscribers(cart.cartlist());}">
+                                <i class=" fs-12 fa fa-plus" aria-hidden="true">
+                                </i>
+                            </button>
+                        </div>
+                    </td>
+                    <td data-th="Subtotal" class="text-center" data-bind="text:  'R'+ parseFloat(price() * quantity()).toFixed(2)"></td>
+                    <td class="actions" data-th="">
+                        <button class="removefromcart btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>&nbsp; Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="visible-xs">
+                    <td class="text-center"><strong data-bind="text:'Total : R'+cart.grand_total()"> </strong></td>
+                </tr>
+                <tr>
+                    <td><a href="#" data-bind="click:function(){cart.cartlist.notifySubscribers(cart.cartlist());  window.location = 'index.html';}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                    <td colspan="2" class="hidden-xs"></td>
+                    <td class="text-center hidden-xs "><strong data-bind="text:'Total : R'+cart.grand_total()"></strong></td>
+                    <td>
+
+
+                        <a href="#" class="btn btn-success btn-block" data-bind="click:function(){cart.cartlist.notifySubscribers(cart.cartlist());  window.location = 'checkout.html';}">Checkout <i class="fa fa-angle-right"></i></a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    </section>
+    <!--<section class="cart bgwhite p-t-70 p-b-100">
+        <div class="container" data-model="cart">
+
+
+
+            <div class="container-table-cart pos-relative">
+                <div class="wrap-table-shopping-cart bgwhite">
+                    <table class="table-shopping-cart">
+                        <tr class="table-head">
+                            <th class="column-1"></th>
+                            <th class="column-2">Product</th>
+                            <th class="column-3">Price</th>
+                            <th class="column-4 p-l-70">Quantity</th>
+                            <th class="column-5">Total</th>
+                        </tr>
+                        <tbody data-bind="foreach:cart.cartlist">
+                            <tr class="table-row">
+                                <td class="column-1">
+                                    <div class="cart-img-product b-rad-4 o-f-hidden">
+                                        <img data-bind="attr:{src:cart_pic}" alt="IMG-PRODUCT">
+                                    </div>
+                                </td>
+                                <td class="column-2" data-bind="text:productname"></td>
+                                <td class="column-3" data-bind="text:price"></td>
+                                <td class="column-4">
+                                    <div class="flex-w bo5 of-hidden w-size17">
+                                        <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2" data-bind="click:function(){quantity()>1? quantity(quantity()-1):quantity(1); cart.cartlist.notifySubscribers(cart.cartlist());}">
+                                            <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                                        </button>
+
+                                        <input class="size8 m-text18 t-center num-product" type="number" data-bind="event: { change:function(){quantity()<1? quantity(1):quantity();cart.cartlist.notifySubscribers(cart.cartlist());}},value:quantity,valueUpdate: 'afterkeydown'">
+
+                                        <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" data-bind="click:function(){quantity()<1000? quantity(quantity()+1):quantity(1000); cart.cartlist.notifySubscribers(cart.cartlist());}">
+                                            <i class=" fs-12 fa fa-plus" aria-hidden="true">
+                                            </i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="column-5" data-bind="text:  'R'+ parseFloat(price() * quantity()).toFixed(2)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+            <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+                <h5 class="m-text20 p-b-24">
+                    Cart Totals
+                </h5>
+
+
+                <div class="flex-w flex-sb-m p-b-12">
+                    <span class="s-text18 w-size19 w-full-sm">
+                        Subtotal:
+                    </span>
+
+                    <span class="m-text21 w-size20 w-full-sm">
+                        R <span data-bind="text:cart.grand_total"></span>
+                    </span>
+                </div>
+
+
+                <div class="flex-w flex-sb-m p-t-26 p-b-30">
+                    <span class="m-text22 w-size19 w-full-sm">
+                        Total:
+                    </span>
+
+                    <span class="m-text21 w-size20 w-full-sm">
+                        R<span data-bind="text:cart.final_total"></span>
+                    </span>
+                </div>
+
+                <div class="size15 trans-0-4">
+
+                    <a class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" href="#" data-bind="click:function(){cart.cartlist.notifySubscribers(cart.cartlist());  window.location = 'checkout.html';}">
+                        Proceed to Checkout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- Footer -->
+    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w p-b-90">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    GET IN TOUCH
+                </h4>
+
+                <div>
+                    <p class="s-text7 w-size27">
+                        Any questions? Let us know on our email info@afriheals.co.za or call us on (+27) 76 182 3476
+                    </p>
+
+                    <div class="flex-m p-t-30">
+                        <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-whatsapp"></a>
+                        <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="https://twitter.com/afriheals" class="fs-18 color1 p-r-20 fa fa-twitter"></a>
+                        <a href="tel:+27761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-phone"></a>
+                        <a href="sms:0761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-envelope"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Categories
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Powder
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Capsules
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Links
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="about.html" class="s-text7">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="contact.html" class="s-text7">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <!--<li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Blog
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Help
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="faqs.html#delivery" class="s-text7">
+                            Shipping
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="faqs.html#instructions" class="s-text7">
+                            Instructions
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection -->
+    <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect2"></div>
+
+
+
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+
+
+    <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jquery.base64.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jquery.json.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jquery.cookie.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jsrender.min.js"></script>
+
+    <script type="text/javascript" src="vendor/knockout/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
+
+    <script type="text/javascript" src="vendor/knockout/knockout-3.4.0.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.merge.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout-switch-case.min.js"></script>
+
+    <script src="vendor/knockout/amplify.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jquery.livequery.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.multimodels-0.1.min.js"></script>
+    <script src="vendor/knockout/knockout.validation.min.js"></script>
+    <script type="text/javascript" src="js/models.js"></script>
+    <script src="js/data-layer.js"></script>
+
+
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect2')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script>
+        var products = null;
+        var cart = null;
+        (function ($) {
+
+            productsFn = function () {
+                var self = this;
+                self.productlist = ko.observableArray(DL.getProducts())
+                self.add_chart_new = function (data) {
+
+                    if (data.added()) {
+                        data.added(false);
+                        Swal.fire(data.productname(), "is removed to cart !", "success");
+                        cart.cartlist.remove(data);
+                    } else {
+                        data.added(true);
+                        Swal.fire(data.productname(), "is added to cart !", "success");
+                        cart.cartlist.push(data);
+                    }
+                }
+            }
+
+
+            cartFn = models.cartFn();
+
+            debugger;
+            if (mysession.getcarts() == undefined &&mysession.getcarts() == null) {
+                cart = ko.mapping.fromJS(models.cartFn());
+                products = ko.mapping.fromJS(new productsFn());
+            } else {
+
+                cart = ko.mapping.fromJS(mysession.getcarts());
+                products = ko.mapping.fromJS(mysession.getproducts());
+            }
+
+            ko.attach("products", products);
+            ko.attach("cart", cart);
+
+
+            if (cart.cartlist().length == 0) {
+                Swal.fire("No cart", "Im sending you back to shopping", "warning").then(function () {
+                    debugger;
+                    window.location = "index.html"
+                });
+            }
+
+            cart.cartlist.subscribe(function (data) {
+                var total = 0;
+                ko.utils.arrayForEach(cart.cartlist(), function (data) {
+                    debugger;
+                    total += (data.price() * data.quantity());
+
+                });
+                cart.grand_total(parseFloat(total).toFixed(2));
+                cart.delivery_price('0.00');
+                if (cart.grand_total() < 1001 && cart.delivery() != 'no') {
+                    if (cart.province() != '') {
+                        cart.province() == 'GP' ? cart.delivery_price('100.00') : cart.delivery_price('110.00');
+                    }
+
+                } else {
+                    cart.delivery_price('0');
+                }
+
+
+                cart.final_total(parseFloat(parseFloat(cart.grand_total()) + parseFloat(cart.delivery_price())).toFixed(2));
+
+               mysession.setcart(ko.toJS(cart));
+               mysession.setproducts(ko.toJS(products))
+
+            });
+
+
+        })(jQuery);
+
+
+        $(document).on('click', '.removefromcart', function () {
+            var data = ko.dataFor(this);
+              cart.cartlist.remove(data);
+            Swal.fire(data.productname(), "is removed from cart", "success");          
+            
+        });
+
+        ko.bindingHandlers.fadeVisible = {
+            init: function (element, valueAccessor) {
+
+                var value = valueAccessor();
+                $(element).toggle(ko.unwrap(value));
+            },
+            update: function (element, valueAccessor) {
+                var value = valueAccessor();
+                ko.unwrap(value) ? $(element).fadeIn() : $(element).fadeOut();
+            }
+        };
+
+    </script>
+
+</body>
+</html>

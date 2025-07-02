@@ -1,0 +1,605 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    <header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+                    <a href="#"><p class="p-b-11" style="padding-top:10px">Wana Chat? Click on any of the Icons :</p></a>
+                    <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="topbar-social-item fa fa-whatsapp"></a>
+                    <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="https://twitter.com/afriheals" target="_blank" class="topbar-social-item fa fa-twitter"></a>
+                </div>
+
+                <span class="topbar-child1">
+                    Free delivery for standard order over R 1000.00
+                </span>
+
+                <div class="topbar-child2">
+
+                    <a href="mailto:info@africanheals.co.za?Subject='Mpesu Enquiry'" target="_blank" class="fa fa-address-book">
+                        <span class="topbar-email">
+                            info@africanheals.co.za
+                        </span>
+                    </a>
+                    <span class="linedivide1"></span>
+
+                    <a href="tel:+27761823476" target="_blank" class="fa fa-phone">&nbsp; <span class="topbar-email">+27 76 182 3476</span></a>
+
+
+                </div>
+            </div>
+
+            <div class="wrap_header">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="images/mpesu/logo.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu -->
+                <div class="wrap_menu">
+                    <nav class="menu">
+                        <ul class="main_menu">
+                            <li>
+                                <a href="index.html">Shop</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+
+                            <li class="sale-noti">
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="faqs.html">FAQs</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Header Icon -->
+                <div class="header-icons" data-model="cart">
+                    <div class="header-wrapicon2">
+                        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti" data-bind="text:cart.cartlist().length"></span>
+
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                            <ul class="header-cart-wrapitem" data-bind="foreach:cart.cartlist">
+                                <li class="header-cart-item">
+                                    <div class="header-cart-item-img">
+                                        <img class="productinfo" data-bind="attr:{src:cart_pic}" alt="IMG">
+                                    </div>
+
+                                    <div class="header-cart-item-txt">
+                                        <a href="#" class="productinfo header-cart-item-name">
+                                            <span data-bind="text:product_name"></span>
+                                        </a>
+                                        <span class="header-cart-item-info">
+                                            <span data-bind="text:quantity"></span>x <span data-bind="text:product_price"></span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div data-bind="visible:cart.cartlist().length<1">
+                                <h4 style="color:red">Your Cart is Empty</h4>
+                            </div>
+                            <div class="header-cart-total">
+                                Total:<span data-bind="text:cart.grand_total"></span>
+                            </div>
+
+                            <div class="header-cart-buttons" data-bind="visible:cart.cartlist().length>0">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="checkout.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="linedivide1"></span>
+
+                    <a href="checkout.html" class="header-wrapicon1 dis-block">
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Header Mobile -->
+        <div class="wrap_header_mobile">
+            <!-- Logo moblie -->
+            <a href="index.html" class="logo-mobile">
+                <img src="images/mpesu/logo.png" alt="IMG-LOGO">
+            </a>
+
+            <!-- Button show menu -->
+            <div class="btn-show-menu">
+                <!-- Header Icon mobile -->
+                <div class="header-icons-mobile">
+
+
+                    <div class="header-wrapicon2" data-model="cart">
+                        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti" data-bind="text: cart.cartlist().length"></span>
+
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                            <ul class=" header-cart-wrapitem" data-bind="foreach:cart.cartlist">
+                                <li class="header-cart-item">
+                                    <div class="productinfo header-cart-item-img">
+                                        <img class="productinfo" data-bind="attr:{src:cart_pic}" alt="IMG">
+                                    </div>
+
+                                    <div class="header-cart-item-txt">
+                                        <a href="#" class="productinfo header-cart-item-name">
+                                            <span data-bind="text:product_name"></span>
+                                        </a>
+
+                                        <span class="header-cart-item-info">
+                                            <span data-bind="text:quantity"></span> x <span data-bind="text:product_price"></span>
+                                        </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <div class="header-cart-total">
+                                Total:<span data-bind="text:cart.grand_total"></span>
+                            </div>
+
+                            <div class="header-cart-buttons">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="checkout.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="linedivide2"></span>
+
+                    <a href="checkout.html" class="header-wrapicon1 dis-block">
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+
+
+                </div>
+
+                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="wrap-side-menu">
+            <nav class="side-menu">
+                <ul class="main-menu">
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <span class="topbar-child1">
+                            Free delivery for standard order over R 1000.00
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8 centered">
+                        <div class="topbar-child2-mobile ">
+                            <a href="mailto:info@africanheals.co.za?Subject='Mpesu Enquiry'" target="_blank" class="fa fa-address-book">
+                                <span class="topbar-email">
+                                    info@africanheals.co.za
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8 centered">
+                        <span class="topbar-child1">
+                            <a href="tel:+27761823476" target="_blank" class="fa fa-phone">&nbsp; <span class="topbar-email">+27 76 182 3476</span></a>
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-10">
+                        <div class="topbar-social-mobile">
+                            <p class="p-b-11">Wana Chat? Click on any of the Icons:</p>
+                            <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="topbar-social-item fa fa-whatsapp"></a>
+                            <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+                            <a href="https://twitter.com/afriheals" target="_blank" class="topbar-social-item fa fa-twitter"></a>
+                            <a href="tel:+27761823476" target="_blank" class="topbar-social-item fa fa-phone"></a>
+                            <a href="sms:0761823476" target="_blank" class="topbar-social-item fa fa-envelope"></a>
+                        </div>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="index.html">Shop</a>
+                    </li>
+
+
+                    <li class="item-menu-mobile">
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li class="item-menu-mobile">
+                        <a href="faqs.html">FAQs</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Title Page -->
+    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/mpesu/cartheader.png);">
+        <h2 class="l-text2 t-center">
+            Answers to your questions
+        </h2>
+    </section>
+
+    <!-- Cart -->
+    <section class="bgwhite p-t-66 p-b-60" data-model="cart">
+        <div class="container">
+
+            <div class="row">
+         
+                    <div class="col-md-6 p-b-30">
+                        <div class="bo9  p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+                            <h4 class="m-text26 p-b-36 p-t-15">
+                                Delivery Options
+                            </h4>
+                            <!--  -->
+                            <div class="flex-w flex-sb-m p-b-12">
+                                <span class="s-text18 w-size19 w-full-sm">
+                                    Collections
+                                </span>
+                                <span class="m-text21 w-size20 w-full-sm">
+                                    After payment, make arrangements with sales consult either by Calling/SMS/Whatsapp on +27 76 182 3476, purchased can be collected from (289 Beyers Naudé Dr Blackheath Randburg 2195) between 8H00-17H00
+                                </span>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="flex-w flex-sb-m p-b-12">
+                                <span class="s-text18 w-size19 w-full-sm">
+                                    Delivery
+                                </span>
+                                <span class="m-text21 w-size20 w-full-sm">
+                                    Payment must be made before 11am in order to dispatch on the same day. Orders do not dispatch on holidays, Saturday or Sunday <br /> As special circumstances cannot be predicted Afriheals can't guarantee delivery dates, but will make every effort to avoid delays
+                                </span>
+                            </div>
+
+
+
+                        </div>
+                    </div>            
+             
+
+                    
+
+                    <div class="col-md-6 p-b-30" id="instructions">
+                    <div class="bo9  p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+                        <h4 class="m-text26 p-b-36 p-t-15">
+                            Instructions
+                        </h4>
+                        <!--  -->
+                        <div class="flex-w flex-sb-m p-b-12">
+                            <span class="s-text18 w-size19 w-full-sm">
+                                Capsules
+                            </span>
+                            <span class="m-text21 w-size20 w-full-sm">
+                                For best results ensure you have cleaned your system using one of the cleaning products (e,g Stametta). Take (4) four tablets 5hours before action
+                            </span>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="flex-w flex-sb-m p-b-12">
+                            <span class="s-text18 w-size19 w-full-sm">
+                                Powder
+                            </span>
+                            <span class="m-text21 w-size20 w-full-sm">
+                                For best results ensure you have cleaned your system using one of the cleaning products (e,g Stametta). Use one teaspoon into 500ml of mageu, shake it well and consume 5 hours before action
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 p-b-30">
+                    <div class="bo9  p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+                        <h4 class="m-text26 p-b-36 p-t-15">
+                            Payment Method
+                        </h4>
+                        <!--  -->
+                        <div class="flex-w flex-sb-m p-b-12">
+                            <span class="s-text18 w-size19 w-full-sm">
+                                Cash
+                            </span>
+                            <span class="m-text21 w-size20 w-full-sm">
+                                Cash on delivery is only offered to orders that are being collected from one of our distributors, For all orders that have to be shipped, cash can be deposited into our account
+                            </span>
+                        </div><br /><br />
+                        <div class="flex-w flex-sb-m  p-b-12">
+                            <span class="s-text18 w-size19 w-full-sm">
+                                EFT
+                            </span>
+                            <span class="m-text21 w-size20 w-full-sm">
+                                1. Cash Send ,Ewallet,Instant Money ,Capitec Transfer are all welcomed to the following No :076 182 3476<br /><br />
+                                2. EFT and Cash Deposit can be done on the following account:
+
+                                <br />  <br /> Account Name : Muthwaks Solutions
+                                <br />Bank : First National Bank (FNB)
+                                <br /> Account Number :6259 420 7188
+                                <br /> Branch Code : 250455
+                                <br /> Reference : Refernce No
+                            </span>
+                        </div>
+                        <br /><br />
+                        <div class="flex-w flex-sb-m  p-b-12">
+                            <span class="s-text18 w-size19 w-full-sm">
+                                Online Payment
+                            </span>
+                            <span class="m-text21 w-size20 w-full-sm">
+                                Coming soon , Our development team is looking at it
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+</div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w p-b-90">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    GET IN TOUCH
+                </h4>
+
+                <div>
+                    <p class="s-text7 w-size27">
+                        Any questions? Let us know on our email info@afriheals.co.za or call us on (+27) 76 182 3476
+                    </p>
+
+                    <div class="flex-m p-t-30">
+                        <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-whatsapp"></a>
+                        <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="https://twitter.com/afriheals" class="fs-18 color1 p-r-20 fa fa-twitter"></a>
+                        <a href="tel:+27761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-phone"></a>
+                        <a href="sms:0761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-envelope"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Categories
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Powder
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Capsules
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Links
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="about.html" class="s-text7">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="contact.html" class="s-text7">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <!--<li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Blog
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Help
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="faqs.html#delivery" class="s-text7">
+                            Shipping
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="faqs.html#instructions" class="s-text7">
+                            Instructions
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection -->
+    <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect2"></div>
+
+
+
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+
+
+    <script type="text/javascript" src="js/localstorage.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout-3.4.0.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.merge.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout-switch-case.min.js"></script>
+
+    <script src="vendor/knockout/knockout.validation.min.js"></script>
+    <script src="js/models.js"></script>
+
+
+
+    <script type="text/javascript" src="vendor/knockout/jquery.livequery.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.multimodels-0.1.min.js"></script>
+    <script src="vendor/knockout/amplify.min.js"></script>
+    <script src="js/data-layer.js"></script>
+
+
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect2')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script>
+        var products = null;
+        var cart = null;
+        var product_info = null;
+        (function ($) {
+
+            productsFn = function () {
+                var self = this;
+                self.productlist = ko.observableArray(DL.getProducts())
+                self.stylingcss = ko.observable();
+                self.isvisible = ko.observable(false);
+            }
+            cartFn = models.cartFn();
+
+            if (mysession.getcarts() == undefined &&mysession.getcarts() == null) {
+                cart = ko.mapping.fromJS(cartFn);
+                products = ko.mapping.fromJS(new productsFn());
+            } else {
+
+                cart = ko.mapping.fromJS(mysession.getcarts(), cartFn);
+                products = ko.mapping.fromJS(mysession.getproducts(), new productsFn());
+            }
+
+            ko.attach("products", products);
+            ko.attach("cart", cart);
+
+
+
+            $(document).on('click', '.sendInfo', function () {
+                console.log("yes");
+                swal("Oops", "This functionality is currently not working ", "warning");
+
+            });
+
+
+
+        })(jQuery);
+
+
+
+    </script>
+
+</body>
+</html>

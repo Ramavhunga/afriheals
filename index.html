@@ -1,0 +1,934 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    <header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+                    <a href="#"><p class="p-b-11" style="padding-top:10px">Wana Chat? Click on any of the Icons :</p></a>
+                    <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="topbar-social-item fa fa-whatsapp"></a>
+                    <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="https://twitter.com/afriheals" target="_blank" class="topbar-social-item fa fa-twitter"></a>
+                </div>
+
+                <span class="topbar-child1">
+                    Free delivery for standard order over R 1000.00
+                </span>
+
+                <div class="topbar-child2">
+
+                    <a href="mailto:info@africanheals.co.za?Subject='Mpesu Enquiry'" target="_blank" class="fa fa-address-book">
+                        <span class="topbar-email">
+                            info@africanheals.co.za
+                        </span>
+                    </a>
+                    <span class="linedivide1"></span>
+
+                    <a href="tel:+27761823476" target="_blank" class="fa fa-phone">&nbsp; <span class="topbar-email">+27 76 182 3476</span></a>
+
+
+                </div>
+            </div>
+
+            <div class="wrap_header">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="images/mpesu/logo.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu -->
+                <div class="wrap_menu">
+                    <nav class="menu">
+                        <ul class="main_menu">
+                            <li class="sale-noti">
+                                <a href="index.html">Shop</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="faqs.html">FAQs</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Header Icon -->
+                <div class="header-icons" data-model="cart">
+                    <div class="header-wrapicon2">
+                        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti" data-bind="text:cart.cartlist().length"></span>
+
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                            <ul class="header-cart-wrapitem" data-bind="foreach:cart.cartlist">
+                                <li class="header-cart-item">
+                                    <a data-bind="click:function(val){removefromcart(this)}">
+                                        <div class="header-cart-item-img" >
+
+                                            <img  data-bind="attr:{src:cart_pic}" alt="IMG">
+
+                                        </div>
+                                    </a>
+
+                                    <div class="header-cart-item-txt">
+                                        <a href="#" class="header-cart-item-name" data-bind="click:function(){productinfo(this)}">
+                                            <span data-bind="text:productname"></span>
+                                        </a>
+                                        <span class="header-cart-item-info">
+                                            <span data-bind="text:quantity"></span>x <span data-bind="text:price"></span>
+                                        </span>                                       
+                                    </div>
+                                </li>
+                            </ul>
+                            <div data-bind="visible:cart.cartlist().length<1">
+                                <h4 style="color:red">Your Cart is Empty</h4>
+                            </div>
+                            <div class="header-cart-total">
+                                Total:<span data-bind="text:cart.grand_total"></span>
+                            </div>
+
+                            <div class="header-cart-buttons" data-bind="visible:cart.cartlist().length>0">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="checkout.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <span class="linedivide1"></span>
+
+
+                    <a href="checkout.html" class="header-wrapicon1 dis-block">
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Header Mobile -->
+        <div class="wrap_header_mobile">
+            <!-- Logo moblie -->
+            <a href="index.html" class="logo-mobile">
+                <img src="images/mpesu/logo.png" alt="IMG-LOGO">
+            </a>
+
+            <!-- Button show menu -->
+            <div class="btn-show-menu">
+                <!-- Header Icon mobile -->
+                <div class="header-icons-mobile">
+
+
+                    <div class="header-wrapicon2" data-model="cart">
+                        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti" data-bind="text: cart.cartlist().length"></span>
+
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                            <ul class=" header-cart-wrapitem" data-bind="foreach:cart.cartlist">
+                                <li class="header-cart-item">
+                                    <a data-bind="click:function(val){removefromcart(this)}">
+                                        <div class="header-cart-item-img">
+                                            <img class="productinfo" data-bind="attr:{src:cart_pic}" alt="IMG">
+                                        </div>
+                                    </a>
+
+                                    <div class="header-cart-item-txt">
+                                        <a href="#" class="productinfo header-cart-item-name" data-bind="click:function(){productinfo(this)}">
+                                            <span data-bind="text:productname"></span>
+                                        </a>
+
+                                        <span class="header-cart-item-info">
+                                            <span data-bind="text:quantity"></span> x <span data-bind="text:price"></span>
+                                        </span>
+
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <div class="header-cart-total">
+                                Total:<span data-bind="text:cart.grand_total"></span>
+                            </div>
+
+                            <div class="header-cart-buttons">
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        View Cart
+                                    </a>
+                                </div>
+
+                                <div class="header-cart-wrapbtn">
+                                    <!-- Button -->
+                                    <a href="checkout.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Check Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="linedivide2"></span>
+
+                    <a href="checkout.html" class="header-wrapicon1 dis-block">
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+
+
+                </div>
+
+                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="wrap-side-menu">
+            <nav class="side-menu">
+                <ul class="main-menu">
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <span class="topbar-child1">
+                            Free delivery for standard order over R 1000.00
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8 centered">
+                        <div class="topbar-child2-mobile ">
+                            <a href="mailto:info@africanheals.co.za?Subject='Mpesu Enquiry'" target="_blank" class="fa fa-address-book">
+                                <span class="topbar-email">
+                                    info@africanheals.co.za
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8 centered">
+                        <span class="topbar-child1">
+                            <a href="tel:+27761823476" target="_blank" class="fa fa-phone">&nbsp; <span class="topbar-email">+27 76 182 3476</span></a>
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-10">
+                        <div class="topbar-social-mobile">
+                            <p class="p-b-11">Wana Chat? Click on any of the Icons:</p>
+                            <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="topbar-social-item fa fa-whatsapp"></a>
+                            <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+                            <a href="https://twitter.com/afriheals" target="_blank" class="topbar-social-item fa fa-twitter"></a>
+                            <a href="tel:+27761823476" target="_blank" class="topbar-social-item fa fa-phone"></a>
+                            <a href="sms:0761823476" target="_blank" class="topbar-social-item fa fa-envelope"></a>
+                        </div>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="index.html">Shop</a>
+                    </li>
+
+
+                    <li class="item-menu-mobile">
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li class="item-menu-mobile">
+                        <a href="faqs.html">FAQs</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Slide1 -->
+    <!--<section class="slide1">
+        <div class="wrap-slick1">
+            <div class="slick1">
+                <div class="item-slick1 item1-slick1" style="background-image: url(images/mpesu/shopnow.jpg);">
+                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                        <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+                            Afriheals 2018
+                        </span>
+
+                        <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+                            100 % herbal
+                        </h2>
+
+                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+
+                            <a href="index.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                Shop Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>-->
+    <!-- New Product -->
+    <section class="newproduct bgwhite p-t-45 p-b-105">
+        <div class="container">
+            <div class="sec-title p-b-60">
+                <h3 class="m-text5 t-center">
+                    Shop Products
+                </h3>
+            </div>
+
+
+            <div class="row" data-model="products" data-bind="foreach: productlist">
+
+                <!--<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+                    <div class="block2">
+                        <div class="block3-img wrap-pic-w of-hidden pos-relative ">
+
+                            <div class="block2-overlay trans-0-4">
+                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                    <button class="addrevmovecart flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                        <span data-bind="text:added()?'Remove From Cart':'Add to Cart'"></span>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <img data-bind="attr:{src:picture}" alt="IMG-PRODUCT">
+
+                            <div class="block2-overlay trans-0-4">
+                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                    <button class="addrevmovecart flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                        <span data-bind="text:added()?'Remove From Cart':'Add to Cart'"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block2-txt p-t-20">
+                            <a href="#" class="productinfo block2-name dis-block s-text3 p-b-5">
+                                <span data-bind="text:productname"></span>
+                            </a>
+
+                            <span class="block2-price  p-r-5">
+                                From &nbsp;R  <span data-bind="text:price"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>-->
+
+                <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+                    <div class="block2-txt p-t-20">
+                        <a href="#" class="productinfo block2-name dis-block s-text3 p-b-5">
+                            <span data-bind="text:productname"></span>
+                        </a>
+
+                        <span class="block2-price  p-r-5">
+                            From &nbsp;R  <span data-bind="text:default_price"></span>
+                        </span>
+                    </div>
+                    <div class="block1 hov-img-zoom pos-relative m-b-30">
+                        <a href="#" class="productinfo">
+                            <img data-bind="attr:{src:picture}" alt="IMG-PRODUCT">
+                        </a>
+                        <div class="block1-wrapbtn w-size2">
+
+                            
+                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" data-bind="visible:outofstock()" style="background:#e65540" disabled="disabled">
+                                <span data-bind="text:'Out of Stock'"></span>
+                            </button>
+                            <button class="addrevmovecart flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" data-bind="visible:!outofstock()">
+                                <span data-bind="text:added()?'Remove From Cart':'Add to Cart'"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </section>
+
+
+    <!-- Blog -->
+    <!--<section class="blog bgwhite p-t-94 p-b-65">
+        <div class="container">
+            <div class="sec-title p-b-52">
+                <h3 class="m-text5 t-center">
+                    Testimony
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10 col-md-6 p-b-30 m-l-r-auto">
+                  
+                    <div class="block3">
+                        <a href="#" class="block3-img dis-block hov-img-zoom">
+                            <img src="images/mpesu/testimony.png" alt="IMG-BLOG">
+                        </a>
+
+                        <div class="block3-txt p-t-14">
+                            <h4 class="p-b-7">
+                                <a href="blog-detail.html" class="m-text11">
+                                    One of our clients who had doubts on the Mpesu product
+                                </a>
+                            </h4>
+
+                            <span class="s-text6">By</span> <span class="s-text7">Afriheals</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 11, 2018</span>
+
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-md-6 p-b-30 m-l-r-auto">
+                    
+                    <div class="block3">
+                        <a href="#" class="block3-img dis-block hov-img-zoom">
+                            <img src="images/mpesu/testimony 2.png" alt="IMG-BLOG">
+                        </a>
+
+                        <div class="block3-txt p-t-14">
+                            <h4 class="p-b-7">
+                                <a href="#" class="m-text11">
+                                    Again another happy client who tried the product for the first time
+                                </a>
+                            </h4>
+
+                            <span class="s-text6">By</span> <span class="s-text7">Afriheals</span>
+                            <span class="s-text6">on</span> <span class="s-text7">May 9, 2018</span>
+
+                         
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-md-6 p-b-30 m-l-r-auto">
+                  
+                    <div class="block3">
+                        <a href="#" class="block3-img dis-block hov-img-zoom">
+                            <img src="images/mpesu/testimony 3.png" alt="IMG-BLOG">
+                        </a>
+
+                        <div class="block3-txt p-t-14">
+                            <h4 class="p-b-7">
+                                <a href="blog-detail.html" class="m-text11">
+                                    A happy client who is now part of Afriheals as a reseller distributor
+                                </a>
+                            </h4>
+
+                            <span class="s-text6">By</span> <span class="s-text7">AfriHeals</span>
+                            <span class="s-text6">on</span> <span class="s-text7">November 2, 2017</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+   
+    <section class="shipping bgwhite p-t-62 p-b-46">
+        <div class="flex-w p-l-15 p-r-15">
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Shipping
+                </h4>
+
+                <a href="#" class="s-text11 t-center">
+                    Usually gets in your hands within 48hours
+                </a>
+            </div>
+
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+                <h4 class="m-text12 t-center">
+                    Free Delivery
+                </h4>
+
+                <span class="s-text11 t-center">
+                    Free delivery for stock exceeding R1000.00 within South Africa
+                </span>
+            </div>
+
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Product Collection
+                </h4>
+
+                <span class="s-text11 t-center">
+                    collection open from Monday to Sunday
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w p-b-90">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    GET IN TOUCH
+                </h4>
+
+                <div>
+                    <p class="s-text7 w-size27">
+                        Any questions? Let us know on our email info@afriheals.co.za or call us on (+27) 76 182 3476
+                    </p>
+
+                    <div class="flex-m p-t-30">
+                        <a href=" https://api.whatsapp.com/send?phone=27761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-whatsapp"></a>
+                        <a href="https://www.facebook.com/Afriheals-275534146630562" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="https://twitter.com/afriheals" class="fs-18 color1 p-r-20 fa fa-twitter"></a>
+                        <a href="tel:+27761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-phone"></a>
+                        <a href="sms:0761823476" target="_blank" class="fs-18 color1 p-r-20 fa fa-envelope"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Categories
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Powder
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Capsules
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Links
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="about.html" class="s-text7">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="contact.html" class="s-text7">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <!--<li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Blog
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Help
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="faqs.html#delivery" class="s-text7">
+                            Shipping
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="faqs.html#instructions" class="s-text7">
+                            Instructions
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection1 -->
+    <div id="dropDownSelect1"></div>
+
+
+
+    <!--===============================================================================================-->
+    <!--<script type="text/javascript" src="vendor/knockout/jquery-2.2.4.min.js"></script>-->
+
+
+    <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>-->
+
+
+    <script type="text/javascript" src="vendor/knockout/jquery.base64.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jquery.json.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jquery.cookie.js"></script>
+    <script type="text/javascript" src="vendor/knockout/jsrender.min.js"></script>
+
+
+    <script type="text/javascript" src="vendor/knockout/jquery.easing.1.3.js"></script>
+
+    <script type="text/javascript" src="js/localstorage.js"></script>
+
+
+    <script type="text/javascript" src="vendor/knockout/knockout-3.4.0.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.merge.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout-switch-case.min.js"></script>
+
+    <script src="vendor/knockout/knockout.validation.min.js"></script>
+    <script src="js/models.js"></script>
+
+
+
+    <script type="text/javascript" src="vendor/knockout/jquery.livequery.min.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout.multimodels-0.1.min.js"></script>
+    <script src="vendor/knockout/amplify.min.js"></script>
+
+    <script src="js/data-layer.js"></script>
+
+    <script type="text/javascript">
+
+        var products = null;
+        var cart = null;
+        var product_info = null;
+        (function ($) {
+        
+   
+            productsFn = function () {
+                var self = this;
+                self.productlist = ko.observableArray(DL.getProducts())
+                self.stylingcss = ko.observable();
+                self.isvisible = ko.observable(false);
+            }
+
+            cartFn = models.cartFn();
+
+
+            if (mysession.getcarts() == undefined &&mysession.getcarts() == null) {
+                cart = ko.mapping.fromJS(cartFn);
+                products = ko.mapping.fromJS(new productsFn());
+            } else {
+
+                cart = ko.mapping.fromJS(mysession.getcarts(), cartFn);
+                products = ko.mapping.fromJS(mysession.getproducts(), productsFn);
+            }
+
+            ko.attach("products", products);
+            ko.attach("cart", cart);
+
+
+
+            //$("div#productslistdiv").addClass('slick2');
+
+            //products.stylingcss('slick2');
+            //products.isvisible(true);
+            debugger;
+
+            cart.cartlist.subscribe(function (data) {
+                var total = 0;
+                ko.utils.arrayForEach(cart.cartlist(), function (data) {
+                    debugger;
+                    total += (data.price() * data.quantity());
+
+                });
+                cart.grand_total(parseFloat(total).toFixed(2));
+                cart.delivery_price('0.00');
+                if (cart.grand_total() < 1001 && cart.delivery() != 'no') {
+                    if (cart.province() != '') {
+                        cart.province() == 'GP' ? cart.delivery_price('100.00') : cart.delivery_price('110.00');
+                    }
+
+                } else {
+                    cart.delivery_price('0');
+                }
+
+                cart.final_total(parseFloat(parseFloat(cart.grand_total()) + parseFloat(cart.delivery_price())).toFixed(2));
+
+               mysession.setcart(ko.toJS(cart));
+               mysession.setproducts(ko.toJS(products));
+                amplify.store("cartModel", cart);
+
+            });
+
+        })(jQuery);
+
+
+
+        $(document).on('click', '.addrevmovecart', function () {
+            debugger;
+            var data = ko.dataFor(this);
+
+            var updateproduct = ko.utils.arrayFirst(cart.cartlist(), function (item) {
+                return data.id() == item.id()
+            });         
+            cart.cartlist.replace(updateproduct, data)
+
+            if (data.added()) {
+                data.added(false);
+
+        
+                ko.utils.arrayFilter(cart.cartlist(), function (item) {
+                    if (item.id() == data.id()) {
+                        cart.cartlist.remove(item);
+                    }
+                });
+              
+                  Swal.fire(data.productname(), "is removed from cart !", "success");
+            } else {
+
+                var data_products = ko.mapping.toJS(data.products());
+
+                var product_description = ko.observableArray();
+                ko.utils.arrayForEach(data_products, function (_prod) {
+                    product_description.push('R' + _prod.price + ' : ' + _prod.description)
+                });
+
+                var inputOptionsPromise = new Promise(function (resolve) {
+               
+                    setTimeout(function () {
+                        resolve(product_description());
+                    }, 100)
+                });
+
+                Swal.mixin({                 
+                    progressSteps: ['1', '2']
+                }).queue([
+                    {
+                        title: 'Pack Size',
+                        input: 'select',
+                        inputOptions: inputOptionsPromise,
+                        confirmButtonText: 'Next &rarr;',
+                        showCancelButton: true
+                    },
+                    {
+                        input: 'number',
+                        title: 'Quantity',
+                        confirmButtonText: 'Add to Cart',
+                        showCancelButton: true,
+                        inputValue: 1,
+                        inputValidator: (value) => {
+                            debugger;
+                            if (!value) {
+                                return 'Invalid input!'
+                            }
+                        }
+                    }
+
+                ]).then((result) => {
+                    if (result.value) {
+                        debugger;
+                        //data.price(data.products()[result.value[0]].price());
+                        //data.description(data.products()[result.value[0]].description())
+                         ko.utils.arrayFilter(cart.cartlist(), function (item) {
+                                if (item.id() == data.id()) {
+                                    cart.cartlist.remove(item);
+                                }
+                            });
+
+                        cart.cartlist.push(data);  
+
+                          ko.utils.arrayFilter(cart.cartlist(), function (item) {
+                                if (item.id() == data.id()) {
+                                    item.price(data.products()[result.value[0]].price())
+                                    item.quantity(result.value[1]);
+                                }
+                          });
+                        data.added(true);
+                        cart.cartlist.notifySubscribers(cart.cartlist())
+
+                   
+                       
+                        Swal.fire({
+                            title: data.productname(),
+                            text: 'is added to cart',
+                            confirmButtonText: 'Go to cart',
+                            icon: 'success',
+                            showCancelButton: true,
+                            cancelButtonText: 'Continue Shopping &rarr;'
+                        }).then((val) => {
+                            if (val.value == true) {
+                                window.location = "cart.html";
+                            }
+                        });
+                    }
+                });
+                
+                //data.added(true);
+
+                //cart.cartlist.push(data);
+                //mysession.setproduct_info(ko.toJS(data));
+                //window.location = "product-detail.html";
+
+
+                //cart.cartlist.push(data);
+                //swal(data.productname(), "is added to cart !", "success");
+            }
+        });
+
+        $(document).on('click', '.removefromcart', function () {
+            debugger;
+            var data = ko.dataFor(this);
+            if (data.added()) {
+                data.added(false);
+                swal(data.productname(), "is removed to cart !", "success");
+                cart.cartlist.remove(data);
+            } else {
+                data.added(true);
+                swal(data.productname(), "is added to cart !", "success");
+                cart.cartlist.push(data);
+            }
+        });
+
+        $(document).on('click', '.productinfo', function () {
+            debugger;
+            var data = ko.dataFor(this);
+           mysession.setproduct_info(ko.toJS(data));
+            window.location = "product-detail.html";
+        });
+
+
+
+        function productinfo(data) {
+            mysession.setproduct_info(ko.toJS(data));
+            window.location = "product-detail.html";
+        }
+
+        function removefromcart(val) {
+
+            val.added(false);
+
+            var updateproduct = ko.utils.arrayFirst(products.productlist(), function (item) {
+                return val.id() == item.id();
+            });
+
+            products.productlist.replace(updateproduct, val);
+
+
+            cart.cartlist.remove(val);
+            Swal.fire(
+                'Deleted!',
+                val.productname() +' is removed from cart.',
+                'success'
+            );
+
+        }
+
+    </script>
+
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
